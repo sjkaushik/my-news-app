@@ -1,4 +1,4 @@
-package com.kaushik.mynewsapp.ui.theme
+package com.kaushik.mynewsapp.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

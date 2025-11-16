@@ -1,4 +1,4 @@
-package com.kaushik.mynewsapp
+package com.kaushik.mynewsapp.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.kaushik.mynewsapp.ui.theme.MyNewsAppTheme
+import com.kaushik.mynewsapp.presentation.ui.theme.MyNewsAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
