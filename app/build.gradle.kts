@@ -52,9 +52,16 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    /*Dagger Hilt*/
+    /* Dagger Hilt */
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+    /* Retrofit */
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.interceptor)
+    /* Coroutine */
+    implementation(libs.coroutine.view.model)
+    implementation(libs.coroutine.run.time)
 
 
     testImplementation(libs.junit)

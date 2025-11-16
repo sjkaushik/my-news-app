@@ -11,6 +11,11 @@ composeBom = "2024.09.00"
 # Dagger Hilt
 kapt = "1.9.23"
 hilt = "2.57.1"
+# Retrofit
+retrofit = "3.0.0"
+interceptor = "4.10.0"
+# Coroutine
+coroutine ="2.5.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,6 +35,13 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 # Dagger Hilt
 dagger = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 dagger-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+retrofit-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref ="interceptor"}
+# Coroutine
+coroutine-view-model = {module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref="coroutine"}
+coroutine-run-time = {module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref="coroutine"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
