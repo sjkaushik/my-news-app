@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    /* Compose Navigation */
+    implementation(libs.androidx.compose.navigation)
     /* Dagger Hilt */
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
