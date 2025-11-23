@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     ) {
 
                         composable(route = Screen.TopHeadLinesScreen.route) {
-                            HeadLinesScreen()
+                            HeadLinesScreen(this@MainActivity)
                         }
                     }
                 }

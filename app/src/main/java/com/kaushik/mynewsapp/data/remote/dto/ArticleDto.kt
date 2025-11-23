@@ -19,7 +19,7 @@ data class ArticleDto(
     @SerializedName("url")
     val url: String,
     @SerializedName("urlToImage")
-    val urlToImage: String
+    val urlToImage: String? =null
 )
 
 fun ArticleDto.toContentArticle(): Article {
