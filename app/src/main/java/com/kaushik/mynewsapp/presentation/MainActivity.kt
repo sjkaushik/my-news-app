@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.kaushik.mynewsapp.presentation.head_lines.HeadLinesScreen
+import com.kaushik.mynewsapp.presentation.home.HomeScreen
 import com.kaushik.mynewsapp.presentation.ui.theme.MyNewsAppTheme
 import com.kaushik.mynewsapp.presentation.ui.theme.Screen
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,11 +28,15 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.TopHeadLinesScreen.route
+                        startDestination = Screen.HomeScreen.route
                     ) {
 
+                        composable(route = Screen.HomeScreen.route) {
+                            HomeScreen(navController)
+                        }
+
                         composable(route = Screen.TopHeadLinesScreen.route) {
-                            HeadLinesScreen(this@MainActivity)
+                            HeadLinesScreen()
                         }
                     }
                 }

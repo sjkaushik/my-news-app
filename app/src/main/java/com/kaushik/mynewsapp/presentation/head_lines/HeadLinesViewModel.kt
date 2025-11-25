@@ -1,12 +1,13 @@
 package com.kaushik.mynewsapp.presentation.head_lines
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kaushik.mynewsapp.common.Constants
 import com.kaushik.mynewsapp.common.Resource
 import com.kaushik.mynewsapp.domain.usecase.GetHeadLinesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -17,8 +18,9 @@ class HeadLinesViewModel @Inject constructor(
 ) :
     ViewModel() {
 
-    private val _state = mutableStateOf(HeadLinesState())
-    val state = _state
+    private val _state: MutableStateFlow<HeadLinesState> = MutableStateFlow(HeadLinesState())
+    val state = _state.asStateFlow()
+
 
     init {
         fetchHeadLines()
