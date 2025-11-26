@@ -65,6 +65,8 @@ dependencies {
     /* Coroutine */
     implementation(libs.coroutine.view.model)
     implementation(libs.coroutine.run.time)
+    /* Browser */
+    implementation(libs.browser)
 
 
     testImplementation(libs.junit)

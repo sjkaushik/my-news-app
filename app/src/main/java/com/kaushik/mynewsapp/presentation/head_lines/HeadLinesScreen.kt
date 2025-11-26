@@ -1,7 +1,5 @@
 package com.kaushik.mynewsapp.presentation.head_lines
 
-import android.content.Intent
-import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -28,18 +25,19 @@ import coil.compose.AsyncImage
 import com.kaushik.mynewsapp.data.remote.dto.ArticleDto
 
 @Composable
-fun HeadLinesScreen(viewModel: HeadLinesViewModel = hiltViewModel()) {
+fun HeadLinesScreen(
+    viewModel: HeadLinesViewModel = hiltViewModel(),
+    onNewsClick: (url: String) -> Unit
+) {
 
     val state = viewModel.state.collectAsState()
-    val context = LocalContext.current
     Box(modifier = Modifier.fillMaxSize()) {
 
         state.value.data?.let { data ->
             LazyColumn(Modifier.fillMaxSize()) {
                 items(data.articles, key = { it.content }) { article ->
                     ArticleListItem(article = article, onItemClick = {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(article.url))
-                        context.startActivity(intent)
+                        onNewsClick(article.url)
                     })
                 }
             }
