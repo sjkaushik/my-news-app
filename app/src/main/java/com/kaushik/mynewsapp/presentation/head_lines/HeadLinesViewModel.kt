@@ -18,7 +18,8 @@ class HeadLinesViewModel @Inject constructor(
 ) :
     ViewModel() {
 
-    private val _state: MutableStateFlow<HeadLinesState> = MutableStateFlow(HeadLinesState())
+    private val _state: MutableStateFlow<HeadLinesState> =
+        MutableStateFlow(HeadLinesState(isLoading = true))
     val state = _state.asStateFlow()
 
 

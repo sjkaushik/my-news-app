@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.compose.coil)
     /* Dagger Hilt */
     implementation(libs.dagger)
+    testImplementation(libs.junit.jupiter)
     kapt(libs.dagger.compiler)
     /* Retrofit */
     implementation(libs.retrofit)
@@ -69,6 +70,9 @@ dependencies {
     implementation(libs.browser)
 
 
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

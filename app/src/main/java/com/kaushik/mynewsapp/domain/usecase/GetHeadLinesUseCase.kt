@@ -3,8 +3,10 @@ package com.kaushik.mynewsapp.domain.usecase
 import com.kaushik.mynewsapp.common.Resource
 import com.kaushik.mynewsapp.data.remote.dto.TopHeadLines
 import com.kaushik.mynewsapp.domain.repository.NewsRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -14,7 +16,6 @@ class GetHeadLinesUseCase @Inject constructor(private val newsRepository: NewsRe
     operator fun invoke(countryCode: String): Flow<Resource<TopHeadLines>> = flow {
 
         try {
-            emit(Resource.Loading())
             val headLines = newsRepository.getHeadLineNews(code = countryCode)
             emit(Resource.Success(data = headLines))
         } catch (e: HttpException) {
@@ -22,6 +23,6 @@ class GetHeadLinesUseCase @Inject constructor(private val newsRepository: NewsRe
         } catch (e: IOException) {
             emit(Resource.Error("Couldn't reach server. Check your internet connection."))
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
 }
